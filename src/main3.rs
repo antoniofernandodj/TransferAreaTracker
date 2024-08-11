@@ -36,7 +36,7 @@ pub fn main() {
     let mut history_item_selected: bool = false;
     let mut last_item_index = 0;
     
-    println!("Listening keyboard...");
+    println!("Listening main3...");
 
     loop {
         history_item_selected = false;
