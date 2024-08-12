@@ -1,14 +1,12 @@
-// mod keyboard;
-// mod template;
+use crate::pubsub::pubsub_models::Event;
 
-use crate::pubsub::models::Event;
+use clipboard;
 
 use std::collections::{HashMap, HashSet};
-use std::process::Command;
+// use std::process::Command;
 use clipboard::ClipboardProvider;
 use device_query::{DeviceQuery, Keycode};
-use super::models::{EventType, PtEventStore};
-use device_query;
+use super::pubsub_models::{EventType, PtEventStore};
 
 
 pub struct Publisher {
@@ -25,7 +23,7 @@ impl Publisher {
     }
 
     pub fn run(&mut self) {
-        clear_screen();
+        // clear_screen();
 
         let mut last_active_history_index: usize = 10;
         let mut active_history_index: usize = 1;
@@ -114,11 +112,11 @@ impl Publisher {
     }
 }
 
-fn clear_screen() {
-    let mut command: Command = Command::new("clear");
-    let mut result: std::process::Child = command.spawn().unwrap();
-    result.wait().unwrap();
-}
+// fn clear_screen() {
+//     let mut command: Command = Command::new("clear");
+//     let mut result: std::process::Child = command.spawn().unwrap();
+//     result.wait().unwrap();
+// }
 
 pub fn control_shift_number_pressed(
     keys: &HashSet<Keycode>

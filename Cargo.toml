@@ -1,9 +1,0 @@
-[package]
-name = "TransferAreaTracker"
-version = "0.1.0"
-edition = "2021"
-
-[dependencies]
-clipboard = "0.5.0"
-device_query = "2.1.0"
-rand = "0.8.5"

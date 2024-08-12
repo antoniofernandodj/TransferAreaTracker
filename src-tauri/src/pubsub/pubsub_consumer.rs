@@ -1,6 +1,6 @@
 use std::sync::MutexGuard;
-use crate::pubsub::models::EventHandler;
-use super::models::{PtEventHandler, PtEventStore, PtHistoryGroup};
+use crate::pubsub::pubsub_models::EventHandler;
+use super::pubsub_models::{PtEventHandler, PtEventStore, PtHistoryGroup};
 
 
 pub struct Consumer {

@@ -3,7 +3,9 @@
 
 use std::{collections::HashMap, sync::{Arc, Mutex}};
 
-use crate::HistoryGroup;
+use serde::Serialize;
+
+use crate::pubsub::pubsub_history_group::HistoryGroup;
 
 pub type EventStore = Vec<Event>;
 pub type PtEventStore = Arc<Mutex<EventStore>>;
@@ -13,14 +15,14 @@ pub type PtEventHandler = Arc<Mutex<EventHandler>>;
 pub type PtHistoryGroup = Arc<Mutex<HistoryGroup>>;
 
 
-#[derive(Eq, Hash, PartialEq, Debug)]
+#[derive(Eq, Hash, PartialEq, Debug, Clone, Serialize)]
 pub enum EventType {
     NewItemInHistory,
     HistorySelected
 }
 
 
-#[derive(Debug)]
+#[derive(Clone, Debug, Serialize)]
 pub struct Event {
     pub(crate) event_type: EventType,
     pub(crate) history: Option<usize>,
