@@ -82,9 +82,9 @@ fn main() {
         Mutex::new(HistoryGroup::new())
     );
 
-    let (   history_group,
-            mut publisher,
-            mut consumer    ) = pubsub_init::init_pubsub(history_group);
+    let (history_group,
+        mut publisher,
+        mut consumer) = pubsub_init::init_pubsub(history_group);
 
     let _ = async_runtime::spawn(
         async move { publisher.run() }
